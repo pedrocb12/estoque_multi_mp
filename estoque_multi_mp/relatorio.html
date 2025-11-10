@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Relatório / Exportação</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <nav class="menu">
+      <a href="index.html" class="menu-item"> Início</a>
+      <a href="materias.html" class="menu-item"> Matérias‑Primas</a>
+      <a href="produtos.html" class="menu-item"> Produtos Finais</a>
+      <a href="relatorio.html" class="menu-item active"> Planilhas</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h1>Relatório consolidado</h1>
+
+    <div class="filters">
+      <label>Intervalo:
+        <select id="report-interval">
+          <option value="7">Últimos 7 dias</option>
+          <option value="30">Últimos 30 dias</option>
+          <option value="all">Tudo</option>
+        </select>
+      </label>
+      <button id="export-all-report" class="btn">Exportar Tudo (Excel)</button>
+    </div>
+
+    <section id="report-content"></section>
+  </main>
+
+  <script src="xlsx.full.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

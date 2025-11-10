@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Matérias‑Primas</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <nav class="menu">
+      <a href="index.html" class="menu-item"> Início</a>
+      <a href="materias.html" class="menu-item active"> Matérias‑Primas</a>
+      <a href="produtos.html" class="menu-item"> Produtos Finais</a>
+      <a href="relatorio.html" class="menu-item">Planilhas</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h1>Matérias‑Primas</h1>
+
+    <form id="form-materia" class="form-inline">
+      <input type="hidden" id="mp-id">
+      <input id="mp-codigo" placeholder="Código (ex: MP001)" required>
+      <input id="mp-nome" placeholder="Nome" required>
+      <input id="mp-estoque-inicial" type="number" min="0" placeholder="Estoque inicial" required>
+      <input id="mp-entradas" type="number" min="0" placeholder="Entradas" value="0">
+      <input id="mp-saidas" type="number" min="0" placeholder="Saídas" value="0">
+      <input id="mp-estoque-minimo" type="number" min="0" placeholder="Estoque mínimo" value="1">
+      <input id="mp-unidade" placeholder="Unidade (ex: kg, un)" required>
+      <input id="mp-custo" type="number" step="any" min="0" placeholder="Custo por unidade (opcional)">
+      <button id="mp-salvar" class="btn">Salvar</button>
+    </form>
+
+    <div class="table-wrap">
+      <table id="tabela-materias">
+        <thead>
+          <tr>
+            <th>Código</th>
+            <th>Nome</th>
+            <th>Estoque Inicial</th>
+            <th>Entradas</th>
+            <th>Saídas</th>
+            <th>Usado (Produção)</th>
+            <th>Estoque Atual</th>
+            <th>Unidade</th>
+            <th>Custo/unit</th>
+            <th>Última Atualização</th>
+            <th>Status</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+
+    <div class="actions">
+      <button id="export-mp" class="btn">Exportar Excel</button>
+    </div>
+  </main>
+
+  <script src="xlsx.full.min.js"></script>
+  <script src="script.js"></script>
+  <script src="materias.js"></script>
+</body>
+</html>

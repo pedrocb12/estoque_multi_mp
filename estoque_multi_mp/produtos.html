@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Produtos Finais</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <nav class="menu">
+      <a href="index.html" class="menu-item"> Início</a>
+      <a href="materias.html" class="menu-item"> Matérias‑Primas</a>
+      <a href="produtos.html" class="menu-item active"> Produtos Finais</a>
+      <a href="relatorio.html" class="menu-item"> Planilhas</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h1>Produtos Finais</h1>
+
+    <form id="form-produto" class="form-inline">
+      <input type="hidden" id="pf-id">
+      <input id="pf-codigo" placeholder="Código (ex: PF001)" required>
+      <input id="pf-nome" placeholder="Produto (ex: Coxinha)" required>
+      <input id="pf-estoque-inicial" type="number" min="0" placeholder="Estoque inicial" required>
+      <input id="pf-estoque-minimo" type="number" min="0" placeholder="Estoque mínimo" value="1">
+      <input id="pf-unidade" placeholder="Unidade do produto (ex: un)" required>
+      <div id="mp-list" style="width:100%;"></div>
+      <button id="add-mp-row" type="button" class="btn">➕ Adicionar Insumo</button>
+      <input id="pf-custo-total" type="number" step="any" min="0" placeholder="Custo total do produto (calculado)" readonly>
+      <button id="pf-salvar" class="btn">Salvar Produto</button>
+    </form>
+
+    <div class="table-wrap">
+      <table id="tabela-produtos">
+        <thead>
+          <tr>
+            <th>Código</th>
+            <th>Produto</th>
+            <th>Estoque Inicial</th>
+            <th>Produzido</th>
+            <th>Vendido</th>
+            <th>Estoque Atual</th>
+            <th>Matérias‑primas</th>
+            <th>Última Produção</th>
+            <th>Status</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+
+    <div class="actions">
+      <button id="export-pf" class="btn">Exportar Excel</button>
+    </div>
+  </main>
+
+  <template id="mp-row-template">
+    <div class="mp-row">
+      <select class="mp-select"></select>
+      <input class="mp-qty" type="number" step="any" min="0" placeholder="Qtd por unidade">
+      <input class="mp-unit" placeholder="unidade" readonly>
+      <input class="mp-cost" type="number" step="any" min="0" placeholder="custo/unit (auto)">
+      <button class="remove-mp btn" type="button">Remover</button>
+    </div>
+  </template>
+
+  <script src="xlsx.full.min.js"></script>
+  <script src="script.js"></script>
+  <script src="materias.js"></script>
+  <script src="produtos.js"></script>
+</body>
+</html>

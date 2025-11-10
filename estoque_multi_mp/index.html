@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Sistema Local de Estoque - Início</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <nav class="menu">
+      <a href="index.html" class="menu-item"> Início</a>
+      <a href="materias.html" class="menu-item"> Matérias‑Primas</a>
+      <a href="produtos.html" class="menu-item"> Produtos Finais</a>
+      <a href="relatorio.html" class="menu-item"> Planilhas</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h1>Resumo do Estoque</h1>
+
+    <div class="cards">
+      <div class="card">
+        <h2 id="total-materias">--</h2>
+        <p>Matérias‑primas cadastradas</p>
+      </div>
+      <div class="card">
+        <h2 id="total-produtos">--</h2>
+        <p>Produtos finais cadastrados</p>
+      </div>
+      <div class="card">
+        <h2 id="em-limite">--</h2>
+        <p>Matérias‑primas em limite/reposição</p>
+      </div>
+    </div>
+
+    <div class="actions">
+      <button id="export-all" class="btn">Exportar tudo para Excel</button>
+    </div>
+
+    <section id="recent-activity">
+      <h3>Atividade recente</h3>
+      <pre id="activity-list" style="white-space:pre-wrap;"></pre>
+    </section>
+  </main>
+
+  <script src="xlsx.full.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
