@@ -1,4 +1,4 @@
-// produtos.js (suporta múltiplas matérias-primas por produto)
+
 (function(){
   const key = LS_KEYS.PRODUTOS;
   const tabelaBody = document.querySelector('#tabela-produtos tbody');
@@ -54,10 +54,9 @@
     const cost = row.querySelector('.mp-cost');
     const btnRemove = row.querySelector('.remove-mp');
 
-    // populate options
+
     populateMpSelect();
-    // after populateMpSelect runs, there's a small chance the select isn't filled in the cloned node yet,
-    // so we fill manually:
+    
     const materias = load(LS_KEYS.MATERIAS);
     sel.innerHTML = '<option value="">--Escolha MP--</option>';
     materias.forEach((m,i)=>{ const opt = document.createElement('option'); opt.value=i; opt.textContent = `${m.codigo} — ${m.nome}`; sel.appendChild(opt); });
@@ -162,7 +161,7 @@
           const names = shortages.map(s=>`${s.mp.nome} (precisa ${s.needed}, tem ${s.atual})`).join('\n');
           if(!confirm('Há falta de matéria‑prima:\n' + names + '\nDeseja continuar e permitir estoque negativo?')) return;
         }
-        // aplicar desconto em cada MP
+        
         (p.materiasPrimas||[]).forEach(mrp=>{
           if(mrp.mp_index===null) return;
           const mp = materias[mrp.mp_index];
@@ -186,7 +185,7 @@
         document.getElementById('pf-nome').value = p.nome;
         document.getElementById('pf-estoque-inicial').value = p.estoque_inicial;
         document.getElementById('pf-unidade').value = p.unidade;
-        // popular mp rows
+        
         mpList.innerHTML = '';
         (p.materiasPrimas||[]).forEach(m=> addMpRow({
           mp_index: m.mp_index,

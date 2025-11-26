@@ -1,4 +1,4 @@
-// materias.js (atualizado: inclui custo por unidade)
+
 (function(){
   const key = LS_KEYS.MATERIAS;
   const tabelaBody = document.querySelector('#tabela-materias tbody');
@@ -99,7 +99,7 @@
     });
   }
 
-  // exposições
+  
   window.populateMpSelect = function(){
     const sel = document.querySelectorAll('.mp-select');
     const materias = load(key);
@@ -109,7 +109,7 @@
       materias.forEach((m, i)=>{ const opt = document.createElement('option'); opt.value = i; opt.textContent = `${m.codigo} — ${m.nome}`; s.appendChild(opt); });
       if(curVal) s.value = curVal;
     });
-    // também preencher selects simples (se existirem)
+    
     const simple = document.getElementById('pf-mp-selecao');
     if(simple){
       simple.innerHTML = '<option value="">--Escolha MP--</option>';
@@ -117,12 +117,12 @@
     }
   }
 
-  // inicial
+  
   render();
   if(!document.getElementById('mp-usado')){
     const hidden = document.createElement('input'); hidden.type='hidden'; hidden.id='mp-usado'; hidden.value='0'; form && form.appendChild(hidden);
   }
 
-  // atualizar selects quando a página carrega
+  
   document.addEventListener('DOMContentLoaded', ()=>{ populateMpSelect(); });
 })();

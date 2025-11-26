@@ -1,4 +1,4 @@
-// script.js - lógica comum e utilitários (atualizado)
+
 const LS_KEYS = { MATERIAS: 'estoque_materias_v2', PRODUTOS: 'estoque_produtos_v2', ACTIVITY: 'estoque_activity_v2' };
 
 function nowDate(){
@@ -40,7 +40,7 @@ function pushActivity(text){
   save(LS_KEYS.ACTIVITY, acts.slice(0,200));
 }
 
-// resumo para index
+
 function refreshSummary(){
   const materias = load(LS_KEYS.MATERIAS);
   const produtos = load(LS_KEYS.PRODUTOS);
@@ -65,14 +65,14 @@ function refreshSummary(){
   }
 }
 
-// chamar refresh caso index carregue
+
 if(document.readyState!=='loading'){
   if(document.getElementById('total-materias')) refreshSummary();
 } else {
   document.addEventListener('DOMContentLoaded', ()=>{ if(document.getElementById('total-materias')) refreshSummary(); });
 }
 
-// exportadores públicos para páginas
+
 window.exportTableToExcel = exportTableToExcel;
 window.LS_KEYS = LS_KEYS;
 window.load = load;
